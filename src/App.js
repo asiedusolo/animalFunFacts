@@ -10,16 +10,21 @@ const displayFact = (e) => {
   document.getElementById("fact").innerHTML = funFact;
 };
 const title = "";
-const background = (
-  <img src="/images/ocean.jpg" className="background" alt="ocean" />
-);
-const showBackground = false;
+const Background = () => {
+  return (
+    <img
+      src="https://image.shutterstock.com/image-illustration/abstract-under-sea-background-white-260nw-614496539.jpg"
+      className="background"
+      alt="ocean"
+    />
+  );
+};
+
 const images = [];
 for (const animal in animals) {
   images.push(
     <img
       key={animal}
-      style={{ width: "150px", height: '150px' }}
       className="animal"
       alt={animal}
       src={animals[animal].image}
@@ -31,12 +36,15 @@ for (const animal in animals) {
 }
 
 const AnimalFacts = () => {
+  const showBackground = true;
+
   return (
-    <div className="App">
+    <div>
       <h1>{title || "Click an animal for a fun fact"}</h1>
-      {showBackground && background}
+      {showBackground && <Background />}
       <div className="animals">{images}</div>
       <p id="fact"></p>
+      <button>remove background</button>
     </div>
   );
 };
