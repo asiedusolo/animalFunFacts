@@ -1,5 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { animals } from "./animals";
+import dolphin from './images/dolphin.jpg'
+import lobster from './images/lobster.jpg'
+import starfish from './images/starfish.jpg'
+
+const fishes = {
+  'dophin': dolphin,
+  'lobster': lobster,
+  'starfish': starfish
+}
 
 const displayFact = (e) => {
   console.log(e.target.alt);
@@ -27,7 +36,7 @@ for (const animal in animals) {
       key={animal}
       className="animal"
       alt={animal}
-      src={animals[animal].image}
+      src={fishes[animal]}
       aria-label={animal}
       role="button"
       onClick={displayFact}
@@ -36,15 +45,15 @@ for (const animal in animals) {
 }
 
 const AnimalFacts = () => {
-  const showBackground = true;
+  const [showBackground, setShowBackground] = useState(true)
 
   return (
     <div>
+      <button onClick={() => setShowBackground(!showBackground)}>toggle background</button>
       <h1>{title || "Click an animal for a fun fact"}</h1>
       {showBackground && <Background />}
       <div className="animals">{images}</div>
       <p id="fact"></p>
-      <button>remove background</button>
     </div>
   );
 };
