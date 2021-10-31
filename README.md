@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# A simple react app that displays fun facts about fishes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
